@@ -1,5 +1,7 @@
 ---
 
+_vcs_ref: HEAD
+
 _envops:
   lstrip_blocks: true
   trim_blocks: true
@@ -49,9 +51,14 @@ copyright_holder:
   default: 'Mantoso Corporation'
 
 copyright_year:
-  type: str
+  type: int
+  default: '{{ (now()|string).split("-")[0] }}'
   help: The copyright year
-  default: '2023'
+
+release_date:
+  type: str
+  default: '{{ (now()|string).split(" ")[0] }}'
+  help: Release date for initial CHANGELOG.md
 
 copyright_license:
   type: str
