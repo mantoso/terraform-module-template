@@ -31,7 +31,8 @@ _skip_if_exists:
   - CHANGELOG.md
   - README.md
 
-_subdirectory: "terraform-{{ module_name | lower | replace(' ', '-') | replace('_', '-') }}"
+# _subdirectory: "terraform-{{ module_name | lower | replace(' ', '-') | replace('_', '-') }}"
+_subdirectory: "module-template"
 
 module_name:
   type: str
