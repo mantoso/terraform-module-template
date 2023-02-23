@@ -5,16 +5,16 @@ _envops:
   trim_blocks: true
   keep_trailing_newline: true
 
-_exclude:
-  - ./.editorconfig
-  - ./.gitattributes
-  - ./.mailmap
-  - ./copier.yml
-  - ./DCO.txt
-  - ./README.md
-  - ./NOTICE.txt
-  - ./LICENSE
-  - ./.git
+#_exclude:
+#  - .editorconfig
+#  - .gitattributes
+#  - .mailmap
+#  - copier.yml
+#  - DCO.txt
+#  - README.md
+#  - NOTICE.txt
+#  - LICENSE
+#  - .git
 
 _templates_suffix: .jinja
 
@@ -30,6 +30,8 @@ _skip_if_exists:
   - variables.tf
   - CHANGELOG.md
   - README.md
+
+_subdirectory: "terraform-{{ module_name | lower | replace(' ', '-') | replace('_', '-') }}"
 
 module_name:
   type: str
