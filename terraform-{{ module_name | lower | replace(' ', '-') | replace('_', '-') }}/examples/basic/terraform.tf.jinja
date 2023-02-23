@@ -1,0 +1,19 @@
+/*
+ * Set Terraform and requirements for this module
+ * provider requirements are in providers.tf
+ */
+
+terraform {
+  // see https://developer.hashicorp.com/terraform/language/settings#specifying-provider-requirements
+  required_version = "{{ terraform_version }}"
+
+{% if aws -%}
+  // see https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "{{ aws_provider_version }}"
+    }
+  }
+{% endif %}
+}

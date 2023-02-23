@@ -1,0 +1,97 @@
+---
+
+_envops:
+  lstrip_blocks: true
+  trim_blocks: true
+  keep_trailing_newline: true
+
+_exclude:
+  - .editorconfig
+  - .gitattributes
+  - .mailmap
+  - copier.yml
+  - DCO.txt
+  - README.md
+  - NOTICE.txt
+  - LICENSE
+  - .git
+
+_templates_suffix: .jinja
+
+_skip_if_exists:
+  - examples
+  - .config/footer.md
+  - .config/header.md
+  - data.tf
+  - locals.tf
+  - main.tf
+  - outputs.tf
+  - terraform.tf
+  - variables.tf
+  - CHANGELOG.md
+  - README.md
+
+module_name:
+  type: str
+  help: What is the name of this Terraform module
+
+company_name:
+  type: str
+  help: Shortname of the company
+  default: 'Mantoso'
+
+copyright_holder:
+  type: str
+  help: The name of the organization or individual holding the copyright
+  default: 'Mantoso Corporation'
+
+copyright_year:
+  type: str
+  help: The copyright year
+  default: '2023'
+
+copyright_license:
+  type: str
+  help: Your project's license
+  default: Apache License 2.0
+  choices:
+  - Apache License 2.0
+  - MIT License
+  - BSD 3-Clause License
+
+security_email:
+  type: str
+  help: Email address to report security concerns
+  default: security@mantoso.com
+
+conduct_email:
+  type: str
+  help: Email address to report Code of Conduct concerns
+  default: conduct@mantoso.com
+
+terraform_version:
+  type: str
+  help: The Terraform required_version constraint value
+  default: '>= 1.3.7'
+
+aws:
+  type: bool
+  help: Is this Terraform module for AWS?
+  default: y
+
+aws_provider_version:
+  type: str
+  help: The AWS Provider required_providers version constraint value.
+  default: '>= 4.0.0, < 5.0.0'
+  when: '{{ aws }}'
+
+gitlab_url:
+  type: str
+  help: GitLab instance URL
+  default: https://gitlab.mantoso.com
+
+initial_codeowners:
+  type: str
+  help: Who are the codeowners use @usernames space limited. If unsure, just use your @username, including the @ sign.
+
+...
